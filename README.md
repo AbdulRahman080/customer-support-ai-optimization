@@ -1,5 +1,3 @@
-# customer-support-ai-optimization
-
 # Customer Experience Optimization with AI-Assisted Ticket Triage
 
 ## 1. Problem
