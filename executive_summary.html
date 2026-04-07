@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Executive Summary — Customer Support AI Optimization</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink: #1a1a1a;
+    --ink-mid: #444;
+    --ink-light: #888;
+    --rule: #e0ddd8;
+    --accent: #1a3a5c;
+    --accent-light: #e8f0f8;
+    --amber: #b8610a;
+    --amber-light: #fdf3e7;
+    --teal: #0f6e56;
+    --teal-light: #e4f4ef;
+    --coral: #993c1d;
+    --coral-light: #fbede8;
+    --page: #faf9f7;
+  }
+
+  @media print {
+    body { background: white; }
+    .page { box-shadow: none; margin: 0; max-width: 100%; }
+  }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: #f0ede8;
+    color: var(--ink);
+    line-height: 1.5;
+    padding: 40px 20px;
+  }
+
+  .page {
+    background: var(--page);
+    max-width: 860px;
+    margin: 0 auto;
+    box-shadow: 0 4px 40px rgba(0,0,0,0.12);
+  }
+
+  /* ── Header ── */
+  .header {
+    background: var(--accent);
+    color: white;
+    padding: 40px 48px 32px;
+    position: relative;
+    overflow: hidden;
+  }
+  .header::after {
+    content: '';
+    position: absolute;
+    right: -60px;
+    top: -60px;
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+    border: 40px solid rgba(255,255,255,0.05);
+  }
+  .header-tag {
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.55);
+    margin-bottom: 12px;
+  }
+  .header h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 32px;
+    font-weight: 400;
+    line-height: 1.2;
+    color: white;
+    max-width: 520px;
+    margin-bottom: 20px;
+  }
+  .header-meta {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  .header-meta span {
+    font-size: 12px;
+    color: rgba(255,255,255,0.6);
+  }
+  .header-meta strong {
+    color: rgba(255,255,255,0.9);
+    font-weight: 500;
+  }
+
+  /* ── Body ── */
+  .body { padding: 40px 48px 48px; }
+
+  /* ── Section title ── */
+  .section-label {
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  /* ── Problem / Solution two-col ── */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    margin-bottom: 40px;
+  }
+  .two-col p {
+    font-size: 13.5px;
+    color: var(--ink-mid);
+    line-height: 1.7;
+  }
+
+  /* ── KPI strip ── */
+  .kpi-strip {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    overflow: hidden;
+    margin-bottom: 40px;
+  }
+  .kpi {
+    background: white;
+    padding: 18px 20px;
+    text-align: center;
+  }
+  .kpi-num {
+    font-family: 'DM Serif Display', serif;
+    font-size: 28px;
+    color: var(--accent);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .kpi-label {
+    font-size: 11px;
+    color: var(--ink-light);
+    line-height: 1.4;
+  }
+
+  /* ── Findings grid ── */
+  .findings {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 40px;
+  }
+  .finding-card {
+    border-radius: 6px;
+    padding: 18px 20px;
+  }
+  .finding-card.amber { background: var(--amber-light); }
+  .finding-card.teal  { background: var(--teal-light); }
+  .finding-card.coral { background: var(--coral-light); }
+  .finding-card .fc-label {
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-weight: 500;
+    margin-bottom: 8px;
+  }
+  .finding-card.amber .fc-label { color: var(--amber); }
+  .finding-card.teal  .fc-label { color: var(--teal); }
+  .finding-card.coral .fc-label { color: var(--coral); }
+  .finding-card h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 15px;
+    font-weight: 400;
+    margin-bottom: 8px;
+    line-height: 1.3;
+  }
+  .finding-card.amber h3 { color: #7a3f06; }
+  .finding-card.teal  h3 { color: #0a4f3c; }
+  .finding-card.coral h3 { color: #6b2910; }
+  .finding-card p {
+    font-size: 12px;
+    line-height: 1.6;
+    color: var(--ink-mid);
+  }
+
+  /* ── ROI table ── */
+  .roi-block {
+    margin-bottom: 40px;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+  }
+  thead th {
+    text-align: left;
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+    font-weight: 500;
+    padding: 0 12px 10px;
+    border-bottom: 1px solid var(--rule);
+  }
+  thead th:not(:first-child) { text-align: right; }
+  tbody tr:last-child td {
+    border-top: 1.5px solid var(--ink);
+    font-weight: 500;
+    padding-top: 10px;
+    color: var(--ink);
+  }
+  tbody td {
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--rule);
+    color: var(--ink-mid);
+    vertical-align: top;
+  }
+  tbody td:not(:first-child) { text-align: right; }
+  .total-row td { background: var(--accent-light); border-radius: 4px; }
+
+  /* ── Recommendation pills ── */
+  .recs {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 40px;
+  }
+  .rec {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 16px 20px;
+    background: white;
+    border: 1px solid var(--rule);
+    border-left: 3px solid var(--accent);
+    border-radius: 0 6px 6px 0;
+  }
+  .rec-num {
+    font-family: 'DM Serif Display', serif;
+    font-size: 22px;
+    color: var(--accent);
+    line-height: 1;
+    min-width: 24px;
+    opacity: 0.4;
+  }
+  .rec-body strong {
+    display: block;
+    font-size: 13.5px;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 3px;
+  }
+  .rec-body span {
+    font-size: 12.5px;
+    color: var(--ink-mid);
+    line-height: 1.5;
+  }
+
+  /* ── Footer ── */
+  .footer {
+    border-top: 1px solid var(--rule);
+    padding-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .footer p {
+    font-size: 11px;
+    color: var(--ink-light);
+  }
+  .payback-pill {
+    background: var(--accent);
+    color: white;
+    font-size: 11.5px;
+    font-weight: 500;
+    padding: 6px 16px;
+    border-radius: 20px;
+    letter-spacing: 0.03em;
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="header">
+    <p class="header-tag">Executive Summary</p>
+    <h1>Customer Support AI Optimization</h1>
+    <div class="header-meta">
+      <span><strong>Dataset</strong> &nbsp;8,469 support tickets</span>
+      <span><strong>Channels</strong> &nbsp;Email · Phone · Chat · Social</span>
+      <span><strong>Approach</strong> &nbsp;Analytics + Gemini API triage prototype</span>
+    </div>
+  </div>
+
+  <div class="body">
+
+    <!-- Problem / Solution -->
+    <p class="section-label">Context</p>
+    <div class="two-col" style="margin-bottom: 36px;">
+      <div>
+        <p style="font-weight:500; font-size:13.5px; color:var(--ink); margin-bottom:8px;">The problem</p>
+        <p>Manual ticket triage is slow, inconsistent, and agent-intensive. Agents read full descriptions, assign priority, and route cases without decision support — leading to delays, misrouting, and poor satisfaction in high-friction channels.</p>
+      </div>
+      <div>
+        <p style="font-weight:500; font-size:13.5px; color:var(--ink); margin-bottom:8px;">The approach</p>
+        <p>Four-stage analysis pipeline: data cleaning and feature engineering, KPI dashboard, friction scoring, and AI triage validation using the Gemini API. Outputs: friction findings, a future-state workflow design, and a channel-specific automation strategy.</p>
+      </div>
+    </div>
+
+    <!-- KPIs -->
+    <p class="section-label">Dataset at a glance</p>
+    <div class="kpi-strip">
+      <div class="kpi">
+        <div class="kpi-num">8,469</div>
+        <div class="kpi-label">Total tickets analyzed</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-num">5</div>
+        <div class="kpi-label">Ticket types, balanced distribution</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-num">4</div>
+        <div class="kpi-label">Support channels</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-num">~168h</div>
+        <div class="kpi-label">Average resolution time</div>
+      </div>
+    </div>
+
+    <!-- Key Findings -->
+    <p class="section-label">Key findings</p>
+    <div class="findings">
+      <div class="finding-card amber">
+        <p class="fc-label">Highest friction</p>
+        <h3>Refund requests top all friction metrics</h3>
+        <p>Highest delay rate, longest resolution time, and highest customer effort score. Strong candidate for policy-based automation.</p>
+      </div>
+      <div class="finding-card teal">
+        <p class="fc-label">Channel gap</p>
+        <h3>Email &amp; social lag behind chat in every metric</h3>
+        <p>Chat delivers the highest satisfaction. Email and social media show the highest friction scores and are the best targets for AI preprocessing at intake.</p>
+      </div>
+      <div class="finding-card coral">
+        <p class="fc-label">Priority system flaw</p>
+        <h3>Manual priority labels don't predict resolution speed</h3>
+        <p>High-priority tickets resolved slower than Critical on average. Data-driven escalation prediction outperforms label-based triage.</p>
+      </div>
+    </div>
+
+    <!-- ROI Table -->
+    <p class="section-label">Business case — estimated annual value</p>
+    <div class="roi-block">
+      <table>
+        <thead>
+          <tr>
+            <th style="width:42%;">Initiative</th>
+            <th>Scope</th>
+            <th>Annual value (low)</th>
+            <th>Annual value (high)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>AI triage — email &amp; social media</td>
+            <td>~50% of volume</td>
+            <td>$59,640</td>
+            <td>$89,460</td>
+          </tr>
+          <tr>
+            <td>Refund &amp; cancellation automation</td>
+            <td>~40% of eligible tickets</td>
+            <td>$190,400</td>
+            <td>$190,400</td>
+          </tr>
+          <tr>
+            <td>Escalation prediction layer</td>
+            <td>~15% at-risk tickets</td>
+            <td>$192,000</td>
+            <td>$684,000</td>
+          </tr>
+          <tr class="total-row">
+            <td><strong>Combined total</strong></td>
+            <td></td>
+            <td><strong>$442,040</strong></td>
+            <td><strong>$963,860</strong></td>
+          </tr>
+        </tbody>
+      </table>
+      <p style="font-size:11px; color:var(--ink-light); margin-top:10px;">Based on industry-standard handle times ($35/hr fully loaded agent cost) and conservative automation eligibility rates. Estimated one-time implementation cost: $40k–$80k.</p>
+    </div>
+
+    <!-- Recommendations -->
+    <p class="section-label">Recommended next steps</p>
+    <div class="recs">
+      <div class="rec">
+        <span class="rec-num">1</span>
+        <div class="rec-body">
+          <strong>Run a 60-day pilot on email triage</strong>
+          <span>Deploy AI summarization and routing on the email channel. Measure pre/post handle time, delay rate, and satisfaction to validate the ROI assumptions before broader rollout.</span>
+        </div>
+      </div>
+      <div class="rec">
+        <span class="rec-num">2</span>
+        <div class="rec-body">
+          <strong>Automate refund eligibility checks</strong>
+          <span>Map refund policy logic into an eligibility rules engine. Target the ~40% of refund tickets that qualify for straight-through processing — highest friction category, fastest path to agent hour savings.</span>
+        </div>
+      </div>
+      <div class="rec">
+        <span class="rec-num">3</span>
+        <div class="rec-body">
+          <strong>Replace priority labels with a predictive escalation model</strong>
+          <span>Train a classifier on resolution delay indicators, ticket type, channel, and customer effort score. Use it to flag at-risk tickets earlier and reduce SLA breach rates.</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      <p>Estimates are directional. A pilot measurement period is recommended before full deployment.</p>
+      <div class="payback-pill">Est. payback: 3–5 months</div>
+    </div>
+
+  </div>
+</div>
+</body>
+</html>
