@@ -20,6 +20,10 @@
 
 ---
 
+## 0. Executive Summary
+
+https://abdulrahman080.github.io/customer-support-ai-optimization/
+
 ## 1. Problem Statement
 
 Customer support teams operating at scale face consistent operational friction: agents spend significant time reading long ticket descriptions, manually assigning urgency levels, and routing cases to the correct queues. This process is inconsistent, slow under high ticket volumes, and difficult to audit.
@@ -91,6 +95,8 @@ customer-support-ai-optimization/
 │   └── FutureStateAIAssistedSupportWorkflow.png
 │
 └── README.md
+│
+└── index.html
 ```
 
 ---
